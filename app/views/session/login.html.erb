@@ -1,0 +1,12 @@
+<h1>Войти</h1>
+<%= form_with url: session_create_path, method: :post, local:true do |f| %>
+    <%= f.label 'Имя пользователя:' %>
+    <%= f.text_field :username, require: true %><br/>
+    <%= f.label 'Пароль:' %>
+    <%= f.password_field :password, require: true %><br/>
+    <%= f.submit :password, value: 'Войти', require: true %>
+<% end %>
+<% unless flash[:error].nil? %>
+    <p> <%= flash[:error] %> </p>  
+<% end %>
+<%=link_to 'Регистрация', new_user_path%>
